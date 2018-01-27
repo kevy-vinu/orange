@@ -1,26 +1,12 @@
-# Create new GitHub repository from command-line
-cd
-mkdir -p GitHub/orange
-cd GitHub/orange
-curl -u 'YOURUSERNAME' https://api.github.com/user/repos -d "{\"name\":\"YOURREPONAME\"}"
-
-# Initiate GitHub repository
-git init
-git remote add origin https://github.com/YOURUSERNAME/YOURREPONAME.git
-
-# Create file and update
-echo "shh.. This is secret" | gpg -ear RECIPIENT > one.asc
+PUSH
+====
+echo "message" | gpg -ear recipient > file.asc
 git add .
-git commit -m msg
+git commit -m done
 git push origin master
 
-# Fetch repository
-cd 
-cd GitHub
-git clone https://github.com/THEIRUSERNAME/THEIRREPONAME.git
-
-# Pull file and read
-cd
-cd GitHub/THEIRREPONAME
+PULL
+====
 git pull origin master
-cat two.asc | gpg -d
+ls
+gpg -d file.asc
