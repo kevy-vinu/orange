@@ -11,14 +11,16 @@ git remote add origin https://github.com/YOURUSERNAME/YOURREPONAME.git
 # Create file and update
 echo "shh.. This is secret" | gpg -ear RECIPIENT > one.asc
 git add .
-git commit -m one
+git commit -m msg
 git push origin master
 
 # Fetch repository
-cd $HOME/GitHub
+cd 
+cd GitHub
 git clone https://github.com/THEIRUSERNAME/THEIRREPONAME.git
 
 # Pull file and read
-cd $HOME/GitHub/red
+cd
+cd GitHub/THEIRREPONAME
 git pull origin master
 cat two.asc | gpg -d
