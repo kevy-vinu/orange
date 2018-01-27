@@ -1,20 +1,24 @@
 # Create new GitHub repository from command-line
+cd
 mkdir -p GitHub/orange
 cd GitHub/orange
-curl -u 'kevy-vinu' https://api.github.com/user/repos -d "{\"name\":\"orange\"}"
+curl -u 'YOURUSERNAME' https://api.github.com/user/repos -d "{\"name\":\"YOURREPONAME\"}"
 
 # Initiate GitHub repository
 git init
-git remote add origin https://github.com/kevy-vinu/orange.git
+git remote add origin https://github.com/YOURUSERNAME/YOURREPONAME.git
 
 # Create file and update
-echo "shh.. This is secret" | gpg -ear zindoory > one.asc
+echo "shh.. This is secret" | gpg -ear RECIPIENT > one.asc
 git add .
 git commit -m one
 git push origin master
 
-# Fetch file and read
+# Fetch repository
 cd $HOME/GitHub
-git clone https://github.com/********/red.git
-cd red
+git clone https://github.com/THEIRUSERNAME/THEIRREPONAME.git
+
+# Pull file and read
+cd $HOME/GitHub/red
+git pull origin master
 cat two.asc | gpg -d
